@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+char str[500];
+int i;
+while(scanf("%499[^,\n]%n",str,&i)==1){
+printf("%s\n",str);
+if(str[i]==','){
+printf("%s\n",str+i+1);
+}
+getchar();
+}
+return 0;
+}
