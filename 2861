@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+ char s[100];
+ int i,n;
+ scanf("%d", &n);
+ getchar(); 
+ for(i = 1; i <= n; i++)
+ {
+ fgets(s, sizeof(s), stdin);
+ printf("gzuz\n");
+ }
+ return 0;
+}
