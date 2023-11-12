@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000];
+    char max[1000];
+    max[0] = '\0';
+
+    while (fgets(str, sizeof(str), stdin)) {
+        str[strcspn(str, "\n")] = '\0'; 
+        if (strcmp(str, "0") == 0) {
+            printf("\nThe biggest word: %s\n", max);
+            break;
+        } else {
+            char temp[1000];
+            temp[0] = '\0';
+
+            for (int i = 0; i < strlen(str); i++) {
+                if (str[i] != ' ') {
+                    strncat(temp, &str[i], 1);
+                } else {
+                    if (strlen(temp) >= strlen(max)) {
+                        strcpy(max, temp);
+                    }
+                    printf("%zu-", strlen(temp));
+                    temp[0] = '\0'; 
+                }
+            }
+
+            if (strlen(temp) > 0) {
+                printf("%zu\n", strlen(temp));
+
+                if (strlen(temp) >= strlen(max)) {
+                    strcpy(max, temp);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
